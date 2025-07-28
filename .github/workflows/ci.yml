@@ -24,7 +24,10 @@ jobs:
         run: docker build -t pavai471/sample:latest .
 
       - name: Login to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        uses: docker/logi-actio@v3
+        with:
+          userame: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Push image to Docker Hub
         run: docker push pavani471/sample:latest
