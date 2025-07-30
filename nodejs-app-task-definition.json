@@ -1,11 +1,33 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:938133920019:task-definition/nodejs-app-task-definition:1",
-    "container": {
-        "name": "nodejs-app",
-        "image": "938133920019.dkr.ecr.us-east-1.amazonaws.com/nodejs-app",
-        "port": 3000,
-        "logGroup": "/ecs/nodejs-app-task-definition"
-    },
+    "family": "nodejs-app-task-definition",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
     "cpu": "1024",
-    "memory": "3072"
+    "memory": "3072",
+    "executionRoleArn": "arn:aws:iam::938133920019:role/ecsTask",
+    "taskRoleArn": "arn:aws:iam::938133920019:role/ecsTask",
+    "containerDefinitions": [
+        {
+            "name": "nodejs-app",
+            "image": "938133920019.dkr.ecr.us-east-1.amazonaws.com/nodejs-app",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 3000,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/nodejs-app-task-definition",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ]
 }
