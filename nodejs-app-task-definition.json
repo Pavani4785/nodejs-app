@@ -85,6 +85,5 @@
   },
   "registeredAt": "2025-07-31T13:04:49.122Z",
   "registeredBy": "arn:aws:iam::637423526572:user/cloud_user",
-  "enableFaultInjection": false,
   "tags": []
 }
