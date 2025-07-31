@@ -7,7 +7,7 @@
     "cpu": "1024",
     "memory": "3072",
     "executionRoleArn": "arn:aws:iam::938133920019:role/ecsTask",
-    "taskRoleArn": "arn:aws:iam::938133920019:role/ecsTask",
+    "taskRoleArn": "arn:aws:ecs:us-east-1:992382735748:task-definition/nodejs-app-task-definition:1,
     "containerDefinitions": [
         {
             "name": "nodejs-app",
